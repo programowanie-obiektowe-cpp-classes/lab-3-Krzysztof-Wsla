@@ -4,10 +4,17 @@
 
 unsigned int transportujFlota(unsigned int towar)
 {
+    Stocznia S;   
 
-    int a{};
-    
-    double b{};
+    double suma_towaru = 0;
+
+    do
+    {
+        Statek* ship = S();
+        suma_towaru += ship->transportuj();
+        delete ship;
+
+    } while (towar <= suma_towaru);
 
     // Twoja implementacja tutaj
     return 0;
