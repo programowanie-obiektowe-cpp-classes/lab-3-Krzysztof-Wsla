@@ -4,18 +4,25 @@
 
 unsigned int transportujFlota(unsigned int towar)
 {
-    Stocznia S;   
+    
+    Stocznia S{};   
 
-    double suma_towaru = 0;
+    int suma_towaru = 0;
 
-    do
+    int ile_zaglowcow = 0;
+
+    while (towar > suma_towaru)
     {
         Statek* ship = S();
+
         suma_towaru += ship->transportuj();
+
+        if (dynamic_cast< Zaglowiec* >(ship) != nullptr)
+            ile_zaglowcow++;
+        
         delete ship;
-
-    } while (towar <= suma_towaru);
-
-    // Twoja implementacja tutaj
-    return 0;
+    } 
+    
+    // Twoja implementacja tutaj 
+    return ile_zaglowcow;
 }
